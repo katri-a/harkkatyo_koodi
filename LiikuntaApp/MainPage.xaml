@@ -7,17 +7,37 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="400"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-        <StackPanel Grid.Column="0">
-<TextBlock Text="Liikuntasuoritusrekisteri" HorizontalAlignment="Center" VerticalAlignment="Top"></TextBlock>
-        </StackPanel>       
-        
-        <StackPanel>
-            <Button x:Name="AddExerciseButton" Content="Lisää suorituksia" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="ms-appx:///Assets/lion.jpg" Stretch="UniformToFill"/>
+        </Grid.Background>
+        <!-- <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions> -->
+
+        <TextBlock x:Name="headerBlock" HorizontalAlignment="Center" Margin="0, 140, 0, 0" 
+            TextWrapping="Wrap" Text="Liikuntasuoritusrekisteri" VerticalAlignment="Top" 
+            Height="auto" Width="auto" FontSize="36" FontFamily="Modern No. 20">
+            <TextBlock.Foreground>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFAD6125" Offset="1"/>
+                    <GradientStop Color="White" Offset="0.331"/>
+                </LinearGradientBrush>
+            </TextBlock.Foreground>
+        </TextBlock>
+
+        <StackPanel HorizontalAlignment="Center" 
+                    VerticalAlignment="Center">
+
+            <Button x:Name="AddButton" Content="Lisää harjoitus" 
+                    Width="232" Margin="5" Click="AddButton_Click" Foreground="White" FontSize="18" BorderBrush="#FF824B26" />
+            <Button x:Name="CalenderButton" Content="Selaa aiempia suorituksia" 
+                    Width="232" Margin="5" Click="CalendarButton_Click" Foreground="White" FontSize="18" BorderBrush="#FF824B26"/>
+            <Button x:Name="InstructionsButton" Content="Ohjeet" 
+                    Width="231" Margin="5" Click="InstructionsButton_Click" Foreground="White" FontSize="18" BorderBrush="#FF824B26"/>
+
         </StackPanel>
+
     </Grid>
 </Page>
