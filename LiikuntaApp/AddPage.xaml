@@ -8,7 +8,10 @@
     mc:Ignorable="d">
 
     <Grid Background="Black">
-        <Button x:Name="BackButton" Content="Palaa" HorizontalAlignment="Left" Margin="905,78,0,0" 
+        <FlyoutBase.AttachedFlyout>
+            <MenuFlyout/>
+        </FlyoutBase.AttachedFlyout>
+        <Button x:Name="BackButton" Content="Pääsivu" HorizontalAlignment="Left" Margin="905,78,0,0" 
                 VerticalAlignment="Top" Foreground="White" Background="#33FFFDFD"
                 Click="BackButton_Click"/>
 
@@ -22,6 +25,39 @@
                 </LinearGradientBrush>
             </TextBlock.Foreground>
         </TextBlock>
+
+        <StackPanel Width="400" Margin="440,200,440,30" Background="White">
+            <TextBlock x:Name="textBlockname" HorizontalAlignment="Center" Margin="184,50,184,0" TextWrapping="Wrap" Text="Nimi" VerticalAlignment="Top" Foreground="#FFF78B38"/>
+            <TextBox x:Name="nameTextBox" HorizontalAlignment="Center" Margin="0,20,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="290"/>
+
+            <TextBlock x:Name="textBlockexercise" HorizontalAlignment="Center" Margin="0,20,0,0" TextWrapping="Wrap" Text="Suoritettu harjoitus" VerticalAlignment="Top" Foreground="#FFF78B38"/>
+            <TextBox x:Name="exerciseTextBox" HorizontalAlignment="Center" Margin="0,20,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="290"/>
+
+            <TextBlock x:Name="textBlockdate" HorizontalAlignment="Center" Margin="0,20,0,0" TextWrapping="Wrap" Text="Suorituspäivämäärä" VerticalAlignment="Top" Foreground="#FFF78B38"/>
+            <DatePicker HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="0,20,0,0" Foreground="#FFF78B38"/>
+
+            <TextBlock x:Name="textBlocksleep" HorizontalAlignment="Center" Margin="0,20,0,0" TextWrapping="Wrap" Text="Unen määrä ja kommentit" VerticalAlignment="Top" Foreground="#FFF78B38"/>
+            <TextBox x:Name="sleepTextBox" HorizontalAlignment="Center" Margin="0,20,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="290"/>
+
+            <Button x:Name="saveButton" Content="Tallenna" HorizontalAlignment="Left" Margin="50,0,0,0" VerticalAlignment="Top" Foreground="Black" >
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFFBA059" Offset="0"/>
+                        <GradientStop Color="White" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+            <Button x:Name="suorituksetButton" Content="Selaa suorituksia" Click="CalendarButton_Click" HorizontalAlignment="Right" Margin="0,0,0,50"  Foreground="Black" >
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFFBA059" Offset="0"/>
+                        <GradientStop Color="White" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+
+        </StackPanel>
+
 
 
 
