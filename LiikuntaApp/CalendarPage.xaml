@@ -11,6 +11,7 @@
         <Button x:Name="BackButton" Content="Palaa" HorizontalAlignment="Left" Margin="1145,43,0,0" 
                 VerticalAlignment="Top" Foreground="Black" Background="#33FFFDFD"
                 Click="BackButton_Click"/>
+        <CalendarView HorizontalAlignment="Left" Margin="390,150,0,0" VerticalAlignment="Top" Height="405" Width="541"/>
 
     </Grid>
 </Page>
