@@ -7,7 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Background="Black">
         <Button x:Name="BackButton" Content="Palaa" HorizontalAlignment="Left" Margin="1145,43,0,0" 
                 VerticalAlignment="Top" Foreground="Black" Background="#33FFFDFD"
                 Click="BackButton_Click"/>
