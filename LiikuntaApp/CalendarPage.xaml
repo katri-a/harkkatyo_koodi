@@ -7,11 +7,25 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="Black">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush Stretch="UniformToFill" ImageSource="Assets/hourglass.jpg" Opacity="0.9"/>
+        </Grid.Background>
         <Button x:Name="BackButton" Content="Palaa" HorizontalAlignment="Left" Margin="1145,43,0,0" 
                 VerticalAlignment="Top" Foreground="Black" Background="#33FFFDFD"
                 Click="BackButton_Click"/>
-        <CalendarView HorizontalAlignment="Left" Margin="390,150,0,0" VerticalAlignment="Top" Height="405" Width="541"/>
+
+        <!-- Otsikko -->
+        <TextBlock x:Name="headerBlock" HorizontalAlignment="Center" Margin="0, 140, 0, 0" 
+            TextWrapping="Wrap" Text="Harjoitukset" VerticalAlignment="Top" 
+            Height="auto" Width="auto" FontSize="26" FontFamily="Modern No. 20">
+            
+        </TextBlock>
+        
+        
+        <TextBlock x:Name="textBlock" Text="" HorizontalAlignment="Left" Margin="430,195,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="345" Width="430" Foreground="Black"/>
+
+
 
     </Grid>
 </Page>

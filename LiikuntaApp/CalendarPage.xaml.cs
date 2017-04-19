@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Storage;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -22,6 +23,8 @@ namespace LiikuntaApp
     /// </summary>
     public sealed partial class CalendarPage : Page
     {
+        private IStorageFile sampleFile;
+
         public CalendarPage()
         {
             this.InitializeComponent();
@@ -37,6 +40,14 @@ namespace LiikuntaApp
             {
                 rootFrame.GoBack();
             }
+        }
+
+
+
+        // read and display file content
+        private async void ReadFile()
+        {
+            textBlock.Text = await Windows.Storage.FileIO.ReadTextAsync(sampleFile);
         }
     }
 }

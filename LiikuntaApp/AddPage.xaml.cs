@@ -22,31 +22,11 @@ using Windows.UI.Xaml.Navigation;
 namespace LiikuntaApp
 {
     /// <summary>
-    /// Lisää uusi harjoitus sivu.
+    /// Add new exercise page.
     /// </summary>
     public sealed partial class Add : Page
     {
-        public Add()
-        {
-            this.InitializeComponent();
-        }
-
-        //lisää harjoitus
-        private Exercise exercise;
-        private ObservableCollection<Exercise> exercises;
-
-        // page is navigated to
-        protected override void OnNavigatedTo(NavigationEventArgs e)
-        {
-            // add
-            if (e.Parameter is ObservableCollection<Exercise>)
-            {
-                exercise = (ObservableCollection<Exercise>)e.Parameter;
-                saveButton.Content = "Tallenna";
-            }
-        }
-
-        private void BackButton_Click(object sender, RoutedEventArgs e)
+        private void CalendarButton_Click(object sender, RoutedEventArgs e)
         {
             // get root frame (which show pages)
             Frame rootFrame = Window.Current.Content as Frame;
@@ -58,33 +38,40 @@ namespace LiikuntaApp
                 rootFrame.GoBack();
             }
         }
-        private void CalendarButton_Click(object sender, RoutedEventArgs e)
+        
+        // define storage file
+        private Windows.Storage.StorageFile sampleFile;
+
+        // constructor
+        public Add()
         {
-            // add and navigate to a new page
-            this.Frame.Navigate(typeof(CalendarPage));
+            this.InitializeComponent();
+
+            // create or open file
+            CreateOrOpenFile();
         }
 
+        // create or open local file
+        private async void CreateOrOpenFile()
+        {
+            Windows.Storage.StorageFolder storageFolder =
+                Windows.Storage.ApplicationData.Current.LocalFolder;
+            sampleFile =
+                await storageFolder.CreateFileAsync("liikunta.txt", Windows.Storage.CreationCollisionOption.OpenIfExists);
+        }
 
-        private async void Save()
-            {
-                try
-                {
-                    // open/create a file
-                    StorageFolder storageFolder = ApplicationData.Current.LocalFolder;
-                    StorageFile testFile = await storageFolder.CreateFileAsync("testi.dat", CreationCollisionOption.OpenIfExists);
+        // write a new line to file
+        private async void SaveButton_Click(object sender, RoutedEventArgs e)
+        {
+            await Windows.Storage.FileIO.AppendTextAsync(sampleFile, nameTextBox.Text + Environment.NewLine);
+            
+        }
 
-                    // save to disk
-                    Stream stream = await testFile.OpenStreamForWriteAsync();
-                    DataContractSerializer serializer = new DataContractSerializer(typeof(List<string>));
-                    serializer.WriteObjectContent(stream, exercise);
-                    await stream.FlushAsync();
-                    stream.Dispose();
-                }
-                catch (Exception ex)
-                {
-                    Debug.WriteLine("Following exception has happend (writing): " + ex.ToString());
-                }
-                }
-    
+        
     }
+
+   
+
+
 }
+

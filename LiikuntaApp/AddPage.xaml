@@ -14,8 +14,8 @@
 
         <!--takaisin pääsivulle nappi-->
         <Button x:Name="BackButton" Content="Pääsivu" HorizontalAlignment="Left" Margin="905,78,0,0" 
-                VerticalAlignment="Top" Foreground="White" Background="#33FFFDFD"
-                Click="BackButton_Click"/>
+                VerticalAlignment="Top" Foreground="White" Background="#33FFFDFD"/>
+        <!--="BackButton_Click"-->
 
         <!-- Otsikko -->
         <TextBlock x:Name="headerBlock" HorizontalAlignment="Center" Margin="0, 140, 0, 0" 
@@ -51,7 +51,7 @@
             
             <StackPanel Orientation="Horizontal">
                 <!--Tallenna nappi-->
-                <Button x:Name="saveButton" Content="Tallenna" Foreground="Black" Margin="90,50,20,0">
+                <Button x:Name="saveButton" Content="Tallenna" Foreground="Black" Margin="90,50,20,0" Click="SaveButton_Click">
                     <Button.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                             <GradientStop Color="#FFFBA059" Offset="0"/>
@@ -59,7 +59,8 @@
                         </LinearGradientBrush>
                     </Button.Background>
                 </Button>
-                <Button x:Name="suorituksetButton" Content="Selaa suorituksia" Click="CalendarButton_Click" Foreground="Black" Margin="10,50,20,0" >
+                <!--Suorituksen sivulle-nappula-->
+                <Button x:Name="suorituksetButton" Content="Selaa suorituksia"  Click="CalendarButton_Click" Foreground="Black" Margin="10,50,20,0" >
                     <Button.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                             <GradientStop Color="#FFFBA059" Offset="0"/>

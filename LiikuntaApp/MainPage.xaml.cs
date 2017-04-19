@@ -44,10 +44,5 @@ namespace LiikuntaApp
             this.Frame.Navigate(typeof(CalendarPage));
         }
 
-        private void InstructionsButton_Click(object sender, RoutedEventArgs e)
-        {
-            // add and navigate to a new page
-            this.Frame.Navigate(typeof(InstructionsPage));
-        }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LiikuntaApp
 {
-    class Exercise
+   public class Exercise
     {
         public string name { get; set; }
         public string exercise_name { get; set; }

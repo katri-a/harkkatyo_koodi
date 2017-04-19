@@ -34,9 +34,7 @@
                     Width="232" Margin="5" Click="AddButton_Click" Foreground="White" FontSize="18" BorderBrush="#FF824B26" />
             <Button x:Name="CalenderButton" Content="Selaa aiempia suorituksia" 
                     Width="232" Margin="5" Click="CalendarButton_Click" Foreground="White" FontSize="18" BorderBrush="#FF824B26"/>
-            <Button x:Name="InstructionsButton" Content="Ohjeet" 
-                    Width="231" Margin="5" Click="InstructionsButton_Click" Foreground="White" FontSize="18" BorderBrush="#FF824B26"/>
-
+          
         </StackPanel>
 
     </Grid>
