@@ -42,12 +42,25 @@ namespace LiikuntaApp
             }
         }
 
-
+        private void CalendarButton_Click(object sender, RoutedEventArgs e)
+        {
+            // get root frame (which show pages)
+            Frame rootFrame = Window.Current.Content as Frame;
+            // did we get it correctly
+            if (rootFrame == null) return;
+            // navigate back if possible
+            if (rootFrame.CanGoBack)
+            {
+                rootFrame.GoBack();
+            }
+        }
 
         // read and display file content
         private async void ReadFile()
         {
             textBlock.Text = await Windows.Storage.FileIO.ReadTextAsync(sampleFile);
         }
+
+       
     }
 }

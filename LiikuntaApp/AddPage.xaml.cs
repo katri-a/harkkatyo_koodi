@@ -26,19 +26,14 @@ namespace LiikuntaApp
     /// </summary>
     public sealed partial class Add : Page
     {
+       
         private void CalendarButton_Click(object sender, RoutedEventArgs e)
         {
-            // get root frame (which show pages)
-            Frame rootFrame = Window.Current.Content as Frame;
-            // did we get it correctly
-            if (rootFrame == null) return;
-            // navigate back if possible
-            if (rootFrame.CanGoBack)
-            {
-                rootFrame.GoBack();
-            }
+            // add and navigate to a new page
+            this.Frame.Navigate(typeof(CalendarPage));
         }
-        
+
+        /*
         // define storage file
         private Windows.Storage.StorageFile sampleFile;
 
@@ -65,9 +60,30 @@ namespace LiikuntaApp
         {
             await Windows.Storage.FileIO.AppendTextAsync(sampleFile, nameTextBox.Text + Environment.NewLine);
             
+        }*/
+
+        Exercise exercises = new Exercise();
+        private async void SaveButton_Click(object sender, RoutedEventArgs e)
+        {
+            //try
+            //{
+                // open/create a file
+                StorageFolder storageFolder = ApplicationData.Current.LocalFolder;
+                StorageFile liikuntaFile = await storageFolder.CreateFileAsync("exercise.dat", CreationCollisionOption.OpenIfExists);
+
+                // save employees to disk
+                Stream stream = await liikuntaFile.OpenStreamForWriteAsync();
+                DataContractSerializer serializer = new DataContractSerializer(typeof(List<Exercise>));
+                serializer.WriteObject(stream, exercises);
+                await stream.FlushAsync();
+                stream.Dispose();
+            //}
+            /*catch (Exception ex)
+            {
+                Debug.WriteLine("Following exception has happend (writing): " + ex.ToString());
+            }*/
         }
 
-        
     }
 
    
