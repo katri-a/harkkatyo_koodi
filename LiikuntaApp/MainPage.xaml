@@ -18,7 +18,7 @@
 
         <TextBlock x:Name="headerBlock" HorizontalAlignment="Center" Margin="0, 140, 0, 0" 
             TextWrapping="Wrap" Text="Liikuntasuoritusrekisteri" VerticalAlignment="Top" 
-            Height="auto" Width="auto" FontSize="36" FontFamily="Modern No. 20" FocusVisualPrimaryBrush="#FFA8612C">
+            Height="auto" Width="auto" FontSize="36" FontFamily="Modern No. 20">
             <TextBlock.Foreground>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FFAD6125" Offset="1"/>

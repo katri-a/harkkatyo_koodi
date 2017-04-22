@@ -22,72 +22,87 @@ using Windows.UI.Xaml.Navigation;
 namespace LiikuntaApp
 {
     /// <summary>
-    /// Add new exercise page.
+    /// Lisää uusi harjoitus-sivu.
     /// </summary>
     public sealed partial class Add : Page
     {
        
+
+        // lisää tai muuta harjoituksia
+        private Exercise exercise;
+        // link to main page collection
+        private ObservableCollection<Exercise> exercises;
+
+
+        // constructor
+        public void AddPage()
+        {
+            this.InitializeComponent();
+        }
+
+        // page is navigated to
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            // add
+            if (e.Parameter is ObservableCollection<Exercise>)
+            {
+                exercises = (ObservableCollection<Exercise>)e.Parameter;
+                saveButton.Content = "Tallenna";
+            }
+            // modify
+            if (e.Parameter is Exercise)
+            {
+                exercise = (Exercise)e.Parameter;
+                nameTextBox.Text = exercise.Name;
+                exerciseTextBox.Text = exercise.Exercise_name;
+                timeTextBox.Text = exercise.Time;
+                //DatePicker.DefaultStyleKeyProperty
+                sleepTextBox.Text = exercise.Comments;
+
+
+                saveButton.Content = "Modify";
+            }
+
+            base.OnNavigatedTo(e);
+        }
+
+        // add/modify button clicked
+        private void SaveButton_Click(object sender, RoutedEventArgs e)
+        {
+            // add a new
+            if (saveButton.Content.ToString().EndsWith("Tallenna"))
+            {
+                exercise = new Exercise();
+            }
+            // add / modify data
+
+            nameTextBox.Text = exercise.Name;
+            exerciseTextBox.Text = exercise.Exercise_name;
+            timeTextBox.Text = exercise.Time;
+            //DatePicker.DefaultStyleKeyProperty
+            sleepTextBox.Text = exercise.Comments;
+
+            exercise.Name = nameTextBox.Text;
+            exercise.Exercise_name = exerciseTextBox.Text;
+            exercise.Time = timeTextBox.Text;
+            //date
+            exercise.Comments = sleepTextBox.Text;
+
+            // add
+            if (saveButton.Content.ToString().EndsWith("Tallenna"))
+            {
+                exercises.Add(exercise);
+            }
+
+        }
+        
+
+        // Selaa suorituksia-sivulle
         private void CalendarButton_Click(object sender, RoutedEventArgs e)
         {
             // add and navigate to a new page
             this.Frame.Navigate(typeof(CalendarPage));
         }
-
-        /*
-        // define storage file
-        private Windows.Storage.StorageFile sampleFile;
-
-        // constructor
-        public Add()
-        {
-            this.InitializeComponent();
-
-            // create or open file
-            CreateOrOpenFile();
-        }
-
-        // create or open local file
-        private async void CreateOrOpenFile()
-        {
-            Windows.Storage.StorageFolder storageFolder =
-                Windows.Storage.ApplicationData.Current.LocalFolder;
-            sampleFile =
-                await storageFolder.CreateFileAsync("liikunta.txt", Windows.Storage.CreationCollisionOption.OpenIfExists);
-        }
-
-        // write a new line to file
-        private async void SaveButton_Click(object sender, RoutedEventArgs e)
-        {
-            await Windows.Storage.FileIO.AppendTextAsync(sampleFile, nameTextBox.Text + Environment.NewLine);
-            
-        }*/
-
-        Exercise exercises = new Exercise();
-        private async void SaveButton_Click(object sender, RoutedEventArgs e)
-        {
-            //try
-            //{
-                // open/create a file
-                StorageFolder storageFolder = ApplicationData.Current.LocalFolder;
-                StorageFile liikuntaFile = await storageFolder.CreateFileAsync("exercise.dat", CreationCollisionOption.OpenIfExists);
-
-                // save employees to disk
-                Stream stream = await liikuntaFile.OpenStreamForWriteAsync();
-                DataContractSerializer serializer = new DataContractSerializer(typeof(List<Exercise>));
-                serializer.WriteObject(stream, exercises);
-                await stream.FlushAsync();
-                stream.Dispose();
-            //}
-            /*catch (Exception ex)
-            {
-                Debug.WriteLine("Following exception has happend (writing): " + ex.ToString());
-            }*/
-        }
-
     }
-
-   
-
-
 }
 
