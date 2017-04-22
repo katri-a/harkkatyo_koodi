@@ -30,7 +30,7 @@ namespace LiikuntaApp
             ApplicationView.PreferredLaunchViewSize = new Size(1000, 800);
 
             // read from disk
-            ReadExercises();
+            //ReadExercises();
             /* bind collection to view
             ExercisesListView.ItemsSource = exercises;
             // select first friend
@@ -106,13 +106,13 @@ namespace LiikuntaApp
             }
         }*/
 
-        // save button clicked
+        /* save button clicked
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
             SaveExercises();
         }
 
-        // read data from disk
+        /* read data from disk
         private async void ReadExercises()
         {
             // find a file
@@ -130,9 +130,9 @@ namespace LiikuntaApp
                 exercises = new ObservableCollection<Exercise>();
                 Debug.WriteLine(ex.Message);
             }
-        }
+        }*/
 
-        // save friends to disk
+        /* save friends to disk
         private async void SaveExercises()
         {
             try
@@ -169,7 +169,7 @@ namespace LiikuntaApp
             messageDialog.Commands.Add(new UICommand("Ok"));
             messageDialog.DefaultCommandIndex = 0;
             await messageDialog.ShowAsync();
-        }
+        }*/
 
         /* a new friend is selected from the list
         private void FriendsListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
