@@ -10,6 +10,10 @@ namespace LiikuntaApp
 {
    public class Exercise : INotifyPropertyChanged
     {
+        /*public string Name;
+        public string Exercise_name { get; set; }
+        public string Date { get; set; }
+        public string Comments { get; set; }*/
         private string name;
         public string Name
         {

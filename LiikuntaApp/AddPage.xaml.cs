@@ -36,7 +36,7 @@ namespace LiikuntaApp
 
 
         // constructor
-        public void AddPage()
+        public Add()
         {
             this.InitializeComponent();
         }
@@ -61,7 +61,7 @@ namespace LiikuntaApp
                 sleepTextBox.Text = exercise.Comments;
 
 
-                saveButton.Content = "Modify";
+                saveButton.Content = "Tallenna";
             }
 
             base.OnNavigatedTo(e);
@@ -75,20 +75,7 @@ namespace LiikuntaApp
             {
                 exercise = new Exercise();
             }
-            // add / modify data
-
-            nameTextBox.Text = exercise.Name;
-            exerciseTextBox.Text = exercise.Exercise_name;
-            timeTextBox.Text = exercise.Time;
-            //DatePicker.DefaultStyleKeyProperty
-            sleepTextBox.Text = exercise.Comments;
-
-            exercise.Name = nameTextBox.Text;
-            exercise.Exercise_name = exerciseTextBox.Text;
-            exercise.Time = timeTextBox.Text;
-            //date täytyy lisätä
-            exercise.Comments = sleepTextBox.Text;
-
+           
             // add
             if (saveButton.Content.ToString().EndsWith("Tallenna"))
             {
@@ -96,21 +83,14 @@ namespace LiikuntaApp
             }
 
         }
-
-        // save friends to disk
+        
+        // save to disk
         private async void SaveExercises()
         {
-            try
-            {
-                // folder
+                           // folder
                 StorageFolder storageFolder = ApplicationData.Current.LocalFolder;
 
-                // delete file if exists
-                IStorageItem employeesItem = await storageFolder.TryGetItemAsync("ecercises.dat");
-                if (await storageFolder.TryGetItemAsync("exercises.dat") != null)
-                {
-                    await employeesItem.DeleteAsync();
-                }
+
                 // -> save collection
                 StorageFile employeesFile = await storageFolder.CreateFileAsync("exercises.dat", CreationCollisionOption.OpenIfExists);
                 // save friends to disk
@@ -119,23 +99,11 @@ namespace LiikuntaApp
                 serializer.WriteObject(stream, exercises);
                 await stream.FlushAsync();
                 stream.Dispose();
-                ShowMessageBox("Tallennettu.");
-            }
-            catch (Exception ex)
-            {
-                ShowMessageBox(ex.Message);
-            }
+            
+               
         }
 
-        // show message box
-        private async void ShowMessageBox(string message)
-        {
-            var messageDialog = new MessageDialog(message);
-            messageDialog.Commands.Add(new UICommand("Ok"));
-            messageDialog.DefaultCommandIndex = 0;
-            await messageDialog.ShowAsync();
-        }
-
+     
         /* save button clicked
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
@@ -147,6 +115,24 @@ namespace LiikuntaApp
         {
             // add and navigate to a new page
             this.Frame.Navigate(typeof(CalendarPage));
+        }
+
+        /*private void AddButton_Click(object sender, RoutedEventArgs e)
+        {
+            // get root frame (which show pages)
+            Frame rootFrame = Window.Current.Content as Frame;
+            // did we get it correctly
+            if (rootFrame == null) return;
+            // navigate back if possible
+            if (rootFrame.CanGoBack)
+            {
+                rootFrame.GoBack();
+            }
+        }*/
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            // add and navigate to a new page
+            this.Frame.Navigate(typeof(MainPage));
         }
     }
 }

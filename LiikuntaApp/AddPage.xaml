@@ -14,8 +14,8 @@
 
         <!--takaisin pääsivulle nappi-->
         <Button x:Name="BackButton" Content="Pääsivu" HorizontalAlignment="Left" Margin="1185,40,0,0" 
-                VerticalAlignment="Top" Foreground="White" Background="#33FFFDFD"/>
-        <!--="BackButton_Click"-->
+                VerticalAlignment="Top" Foreground="White" Background="#33FFFDFD" Click="BackButton_Click"/>
+        
 
         <!-- Otsikko -->
         <TextBlock x:Name="headerBlock" HorizontalAlignment="Center" Margin="0, 140, 0, 0" 
@@ -30,7 +30,7 @@
         </TextBlock>
 
         <!--Valkoinen alue rajattu stack panelilla-->
-        <StackPanel Margin="320,200,320,30" Background="White">
+        <StackPanel Margin="320,200,320,30" Width="auto" Background="White">
 
             <!--Nimi teksti ja kenttä-->
             <StackPanel Orientation="Horizontal">
