@@ -22,7 +22,7 @@ using Windows.UI.Xaml.Navigation;
 namespace LiikuntaApp
 {
     /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
+    /// Calendar page
     /// </summary>
     public sealed partial class CalendarPage : Page
     {

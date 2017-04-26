@@ -31,8 +31,8 @@ namespace LiikuntaApp
 
         // lisää tai muuta harjoituksia
         private Exercise exercise;
-        // link to main page collection
-        private ObservableCollection<Exercise> exercises;
+
+        private ObservableCollection<Exercise> exercises = new ObservableCollection<Exercise>();
 
 
         // constructor
@@ -87,7 +87,7 @@ namespace LiikuntaApp
         // save to disk
         private async void SaveExercises()
         {
-                           // folder
+                // folder
                 StorageFolder storageFolder = ApplicationData.Current.LocalFolder;
 
 

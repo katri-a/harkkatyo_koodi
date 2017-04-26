@@ -13,7 +13,7 @@
         </FlyoutBase.AttachedFlyout>
 
         <!--takaisin pääsivulle nappi-->
-        <Button x:Name="BackButton" Content="Pääsivu" HorizontalAlignment="Left" Margin="1185,40,0,0" 
+        <Button x:Name="BackButton" Content="Pääsivu" HorizontalAlignment="Left" Margin="1108,45,0,0" 
                 VerticalAlignment="Top" Foreground="White" Background="#33FFFDFD" Click="BackButton_Click"/>
         
 
@@ -30,41 +30,41 @@
         </TextBlock>
 
         <!--Valkoinen alue rajattu stack panelilla-->
-        <StackPanel Margin="320,200,320,30" Width="auto" Background="White">
+        <StackPanel Margin="320,200,320,107" Width="auto" Background="White">
 
             <!--Nimi teksti ja kenttä-->
-            <StackPanel Orientation="Horizontal">
-                <TextBlock x:Name="textBlockname" HorizontalAlignment="Center" Margin="100,50,100,0" TextWrapping="Wrap" Text="Nimi" VerticalAlignment="Top" Foreground="#FFF78B38"/>
-                <TextBox x:Name="nameTextBox" HorizontalAlignment="Center" Margin="0,50,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="290"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBlock x:Name="textBlockname" HorizontalAlignment="Left" Margin="0,50,100,0" TextWrapping="Wrap" Text="Nimi" VerticalAlignment="Top" Foreground="#FFF78B38"/>
+                <TextBox x:Name="nameTextBox" HorizontalAlignment="Right" Margin="0,50,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="290"/>
             </StackPanel>
 
             <!--Suoritettu harjoitus ja kenttä-->
-            <StackPanel Orientation="Horizontal">
-                <TextBlock x:Name="textBlockexercise" HorizontalAlignment="Center" Margin="55,30,50,0" TextWrapping="Wrap" Text="Suoritettu harjoitus" VerticalAlignment="Top" Foreground="#FFF78B38"/>
-                <TextBox x:Name="exerciseTextBox" HorizontalAlignment="Center" Margin="0,20,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="290"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBlock x:Name="textBlockexercise" HorizontalAlignment="Left" Margin="0,30,10,0" TextWrapping="Wrap" Text="Suoritettu harjoitus" VerticalAlignment="Top" Foreground="#FFF78B38"/>
+                <TextBox x:Name="exerciseTextBox" HorizontalAlignment="Right" Margin="0,20,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="290"/>
             </StackPanel>
 
             <!--Suorituksen kesto-->
-            <StackPanel Orientation="Horizontal">
-                <TextBlock x:Name="textBlockstime" HorizontalAlignment="Center" Margin="60,30,55,0" TextWrapping="Wrap" Text="Suorituksen kesto" VerticalAlignment="Top" Foreground="#FFF78B38"/>
-                <TextBox x:Name="timeTextBox" HorizontalAlignment="Center" Margin="0,20,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="290"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBlock x:Name="textBlockstime" HorizontalAlignment="Left" Margin="10,30,10,0" TextWrapping="Wrap" Text="Suorituksen kesto" VerticalAlignment="Top" Foreground="#FFF78B38"/>
+                <TextBox x:Name="timeTextBox" HorizontalAlignment="Right" Margin="0,20,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="290"/>
             </StackPanel>
 
             <!--Suorituspäivämäärä ja päivämäärävalitsin-->
-            <StackPanel Orientation="Horizontal">
-                <TextBlock x:Name="textBlockdate" HorizontalAlignment="Center" Margin="55,30,48,0" TextWrapping="Wrap" Text="Suorituspäivämäärä" VerticalAlignment="Top" Foreground="#FFF78B38"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBlock x:Name="textBlockdate" HorizontalAlignment="Center" Margin="10,30,48,0" TextWrapping="Wrap" Text="Suorituspäivämäärä" VerticalAlignment="Top" Foreground="#FFF78B38"/>
                 <DatePicker HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="0,20,0,0" Foreground="#FFF78B38"/>
             </StackPanel>
 
             <!--Unen määrä ja kommentit-->
-            <StackPanel Orientation="Horizontal">
-                <TextBlock x:Name="textBlocksleep" HorizontalAlignment="Center" Margin="38,30,25,0" TextWrapping="Wrap" Text="Unen määrä ja kommentit" VerticalAlignment="Top" Foreground="#FFF78B38"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBlock x:Name="textBlocksleep" HorizontalAlignment="Center" Margin="10,30,25,0" TextWrapping="Wrap" Text="Unen määrä ja kommentit" VerticalAlignment="Top" Foreground="#FFF78B38"/>
                 <TextBox x:Name="sleepTextBox" HorizontalAlignment="Center" Margin="0,20,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="290"/>
             </StackPanel>
 
-            <StackPanel Orientation="Horizontal">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                 <!--Tallenna nappi-->
-                <Button x:Name="saveButton" Content="Tallenna" Foreground="Black" Margin="200,50,20,0" Click="SaveButton_Click">
+                <Button x:Name="saveButton" Content="Tallenna" Foreground="Black" Margin="10,50,20,0" Click="SaveButton_Click">
                     <Button.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                             <GradientStop Color="#FFFBA059" Offset="0"/>
