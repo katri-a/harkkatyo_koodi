@@ -5,15 +5,29 @@ using System.Runtime.CompilerServices;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
+using System.Runtime.Serialization;
+using System.IO;
+
+
 
 namespace LiikuntaApp
 {
-   public class Exercise : INotifyPropertyChanged
+    [DataContract]
+    public class Exercise
     {
-        /*public string Name;
-        public string Exercise_name { get; set; }
-        public string Date { get; set; }
-        public string Comments { get; set; }*/
+
+        public Exercise(string _name, string _exercise_name, string _date, string _comments, string _time)
+        {
+            name = _name;
+            exercise_name = _exercise_name;
+            date = _date;
+            comments = _comments;
+            time = _time;
+
+        }
+
+        [DataMember]
         private string name;
         public string Name
         {
@@ -21,15 +35,10 @@ namespace LiikuntaApp
             set
             {
                 name = value;
-                RaisePropertyChanged();
             }
         }
 
-        private void RaisePropertyChanged()
-        {
-            throw new NotImplementedException();
-        }
-
+        [DataMember]
         private string exercise_name;
         public string Exercise_name
         {
@@ -37,10 +46,10 @@ namespace LiikuntaApp
             set
             {
                 exercise_name = value;
-                RaisePropertyChanged();
             }
         }
 
+        [DataMember]
         private string date;
         public string Date
         {
@@ -48,10 +57,10 @@ namespace LiikuntaApp
             set
             {
                 date = value;
-                RaisePropertyChanged();
             }
         }
 
+        [DataMember]
         private string comments;
         public string Comments
         {
@@ -59,13 +68,11 @@ namespace LiikuntaApp
             set
             {
                 comments = value;
-                RaisePropertyChanged();
             }
         }
 
+        [DataMember]
         private string time;
-
-        public event PropertyChangedEventHandler PropertyChanged;
 
         public string Time
         {
@@ -73,7 +80,6 @@ namespace LiikuntaApp
             set
             {
                 time = value;
-                RaisePropertyChanged();
             }
         }
     }

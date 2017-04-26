@@ -16,20 +16,21 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using System.Text;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
 namespace LiikuntaApp
 {
     /// <summary>
-    /// Calendar page
+    /// Calendar-page to see saved exercises. 
     /// </summary>
     public sealed partial class CalendarPage : Page
     {
         private IStorageFile sampleFile;
         private ObservableCollection<Exercise> exercises;
 
-       
+
         public CalendarPage()
         {
             this.InitializeComponent();
@@ -37,6 +38,7 @@ namespace LiikuntaApp
             // read from disk
             ReadExercises();
         }
+
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
             // get root frame (which show pages)
@@ -80,6 +82,16 @@ namespace LiikuntaApp
                 // read data
                 DataContractSerializer serializer = new DataContractSerializer(typeof(ObservableCollection<Exercise>));
                 exercises = (ObservableCollection<Exercise>)serializer.ReadObject(stream);
+
+
+                string printedText = "";
+
+                foreach (var e in exercises)
+                {
+                    printedText = printedText + "Nimi: " + e.Name + "\n" + "Harjoitus: " + e.Exercise_name + "\n" + "Kesto: " + e.Time + "\n" +  "Päivämäärä: " + e.Date + "\n" + "Unen määrä ja kommentit: " + e.Comments  + "\n\n";
+                }
+
+                textBlock.Text = printedText;
             }
             catch (Exception ex)
             {

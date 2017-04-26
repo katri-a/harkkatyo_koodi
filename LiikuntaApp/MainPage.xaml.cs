@@ -15,6 +15,9 @@ using Windows.UI.Xaml.Navigation;
 
 namespace LiikuntaApp
 {
+    /// <summary>
+    /// Start-page
+    /// </summary>
     public sealed partial class MainPage : Page
     {
         public MainPage()
@@ -29,7 +32,6 @@ namespace LiikuntaApp
 
         private void CalendarButton_Click(object sender, RoutedEventArgs e)
         {
-            // add and navigate to a new page
             this.Frame.Navigate(typeof(CalendarPage));
         }
 

@@ -11,11 +11,7 @@
         <Grid.Background>
             <ImageBrush ImageSource="ms-appx:///Assets/lion.jpg" Stretch="UniformToFill"/>
         </Grid.Background>
-        <!-- <Grid.ColumnDefinitions>
-            <ColumnDefinition />
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions> -->
-
+       
         <TextBlock x:Name="headerBlock" HorizontalAlignment="Center" Margin="0, 140, 0, 0" 
             TextWrapping="Wrap" Text="Liikuntasuoritusrekisteri" VerticalAlignment="Top" 
             Height="auto" Width="auto" FontSize="36" FontFamily="Modern No. 20">
