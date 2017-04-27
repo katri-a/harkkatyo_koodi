@@ -13,6 +13,7 @@ using System.IO;
 
 namespace LiikuntaApp
 {
+    // Ohjelmistopuolen kaveri auttoi koodin kanssa ja lisäsi DataContract
     [DataContract]
     public class Exercise
     {

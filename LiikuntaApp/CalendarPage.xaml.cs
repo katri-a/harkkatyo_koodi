@@ -78,7 +78,7 @@ namespace LiikuntaApp
             try
             {
                 StorageFolder storageFolder = ApplicationData.Current.LocalFolder;
-                Stream stream = await storageFolder.OpenStreamForReadAsync("exercises.dat");
+                Stream stream = await storageFolder.OpenStreamForReadAsync("exercises.txt");
                 // read data
                 DataContractSerializer serializer = new DataContractSerializer(typeof(ObservableCollection<Exercise>));
                 exercises = (ObservableCollection<Exercise>)serializer.ReadObject(stream);

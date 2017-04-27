@@ -87,7 +87,7 @@ namespace LiikuntaApp
         {
             StorageFolder storageFolder = ApplicationData.Current.LocalFolder;
 
-            StorageFile employeesFile = await storageFolder.CreateFileAsync("exercises.dat", CreationCollisionOption.OpenIfExists);
+            StorageFile employeesFile = await storageFolder.CreateFileAsync("exercises.txt", CreationCollisionOption.OpenIfExists);
             Stream stream = await employeesFile.OpenStreamForWriteAsync();
             DataContractSerializer serializer = new DataContractSerializer(typeof(ObservableCollection<Exercise>));
             serializer.WriteObject(stream, exercises);
